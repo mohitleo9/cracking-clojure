@@ -9,3 +9,5 @@
 
 (expect  true (is-uniq-chars-2? "asdf"))
 (expect  false (is-uniq-chars-2? "aadf"))
+
+(expect  "fdaa" (rev "aadf"))

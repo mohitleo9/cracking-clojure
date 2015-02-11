@@ -16,3 +16,8 @@
       (= x (count string)) true
       (.contains (subs string (inc x)) (str (get string x))) false
       :else (recur (inc x)))))
+
+(defn rev
+  "reverses a string"
+  [string]
+  (apply str (reverse string)))

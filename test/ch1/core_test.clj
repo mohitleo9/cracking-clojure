@@ -11,3 +11,6 @@
 (expect  false (is-uniq-chars-2? "aadf"))
 
 (expect  "fdaa" (rev "aadf"))
+
+(expect true (is-permuation? "asdf" "fdsa"))
+(expect false (is-permuation? "aasdf" "fdsa"))

@@ -21,3 +21,11 @@
   "reverses a string"
   [string]
   (apply str (reverse string)))
+
+(defn is-permuation?
+  "takes two strings and see if one is the permuation of other"
+  [string1, string2]
+  (cond
+    (not (= (count string1) (count string2))) false
+    (= (sort string1) (sort string2)) true
+    :else false))

@@ -4,5 +4,8 @@
 
 (expect nil? nil)
 
-(expect (is-uniq-chars? "asdf") true)
-(expect (is-uniq-chars? "aadf") false)
+(expect  true (is-uniq-chars? "asdf"))
+(expect  false (is-uniq-chars? "aadf"))
+
+(expect  true (is-uniq-chars-2? "asdf"))
+(expect  false (is-uniq-chars-2? "aadf"))

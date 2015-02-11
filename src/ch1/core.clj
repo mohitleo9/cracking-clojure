@@ -7,3 +7,12 @@
      (every? nil? (for [y (subs string (+ x 1))]
                     (if (= (get string x) y)
                       true))))))
+
+(defn is-uniq-chars-2?
+  "another attempt at unique chars"
+  [string]
+  (loop [x 0]
+    (cond
+      (= x (count string)) true
+      (.contains (subs string (inc x)) (str (get string x))) false
+      :else (recur (inc x)))))

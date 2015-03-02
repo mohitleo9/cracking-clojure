@@ -18,3 +18,6 @@
 (expect "%20f" (replace-space " f"))
 (expect "%20f%20%20l" (replace-space " f  l"))
 (expect "%20" (replace-space " "))
+
+(expect "3a" (compress-string "aaa"))
+(expect "a" (compress-string "a"))

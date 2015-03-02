@@ -38,3 +38,14 @@
      (if-not (empty? words)
              (str/join "%20" words)
              "%20")))
+
+(defn compress-string
+  "given a string it compresses the string by prepending count,
+  but returns the original string if the compressed string is longer"
+  [string]
+  (let [compressed (apply str
+               (mapcat #(cons (count %)[(first %)])
+                       (partition-by identity string)))]
+    (if (> (count compressed) (count string))
+      string
+      compressed)))

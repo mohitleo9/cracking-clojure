@@ -57,6 +57,21 @@
       (for [row (reverse (range (count matrix)))]
         (get (get matrix row) col))))
 
-(rotate-matrix [[1 2 3]
-                [4 5 6]
-                [7 8 9]])
+(defn clear-matrix
+  "given a matrix, the function transforms the whole row and col of an element if it is zero."
+  [matrix]
+  (let [zeros (loop [row 0 acc []]
+          (if-not (< row (count matrix))
+            acc ;; return this
+            (recur (inc row) (into acc (loop [col 0 acc2 []]
+                                         (if-not (< col (count (get matrix 0)))
+                                           acc2
+                                           (recur (inc col) (into acc2 (if (zero? (get (get matrix row) col))
+                                                                         [row col])))))))))]
+    (let [rows (set (take-nth 2 zeros)) cols (set (take-nth 2 (rest zeros)))]
+      (for [x (range (count matrix))]
+        (for [y (range (count (get matrix 0)))]
+          (if (or (contains? rows x)(contains? cols y))
+            0
+            (get (get matrix x) y)))))))
+

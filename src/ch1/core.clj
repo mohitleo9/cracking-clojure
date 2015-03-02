@@ -75,3 +75,7 @@
             0
             (get (get matrix x) y)))))))
 
+(defn is-rotation?
+  "given two strings it checks if one is the roation of another using isSubstring (java yuck!)"
+  [str1 str2]
+  (.contains (str str1 str1) str2))

@@ -30,3 +30,5 @@
 (expect [[0 0 0]
          [1 3 0]] (clear-matrix [[4 5 0]
                                  [1 3 9]]))
+
+(expect true (is-rotation? "asdf" "fasd"))

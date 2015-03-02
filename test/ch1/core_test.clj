@@ -21,3 +21,8 @@
 
 (expect "3a" (compress-string "aaa"))
 (expect "a" (compress-string "a"))
+
+(expect [[4 1]
+         [5 2]
+         [6 3]] (rotate-matrix [[1 2 3]
+                             [4 5 6]]))

@@ -49,3 +49,14 @@
     (if (> (count compressed) (count string))
       string
       compressed)))
+
+(defn rotate-matrix
+  "given a matrix this function rotates it by 90 degrees"
+  [matrix]
+  (for [col (range (count (get matrix 0)))]
+      (for [row (reverse (range (count matrix)))]
+        (get (get matrix row) col))))
+
+(rotate-matrix [[1 2 3]
+                [4 5 6]
+                [7 8 9]])

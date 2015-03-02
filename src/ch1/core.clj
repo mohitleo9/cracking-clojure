@@ -1,4 +1,5 @@
-(ns ch1.core)
+(ns ch1.core
+  (:require [clojure.string :as str]))
 
 (defn is-uniq-chars?
   "returns true if all the unique chars in a string"
@@ -29,3 +30,11 @@
     (not (= (count string1) (count string2))) false
     (= (sort string1) (sort string2)) true
     :else false))
+
+(defn replace-space
+   "given a string it replaces the spaces with %20"
+   [string]
+   (let [words (str/split string #" ")]
+     (if-not (empty? words)
+             (str/join "%20" words)
+             "%20")))

@@ -14,3 +14,10 @@
   [head]
   (when head
     (vec (cons (:data head) (n-seq (:n-next head))))))
+
+(defn n-last
+  [head]
+  (if-not (:n-next head)
+    head
+    (recur (:n-next head))))
+

@@ -11,3 +11,4 @@
 (expect (range 6) (n-seq (reduce n-conj nil (range 6))))
 (expect vector? (n-seq (reduce n-conj nil (range 6))))
 
+(expect (Node. 4 nil) (n-last (reduce n-conj nil (range 5))))

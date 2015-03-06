@@ -68,3 +68,13 @@
       (if-not (:n-next runner)
         head
         (recur (:n-next head) (:n-next runner))))))
+
+(defn n-partition
+  "given a head (linkedlist) and a value x partition the linked so that all elements to left
+  are smaller and to the right are bigger"
+  [head x]
+  (loop [head head left [] right []]
+    (cond
+      (nil? head) (reduce n-conj nil (concat left right))
+      (<= (:data head) x) (recur (:n-next head) (conj left (:data head)) right)
+      :else (recur (:n-next head) left (conj right (:data head))))))

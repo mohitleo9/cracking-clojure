@@ -58,3 +58,13 @@
   (cond
     (nil? head) nil
     :else (Node. (:data head) (n-remove-duplicates (n-remove-all (:n-next head) (:data head))))))
+
+(defn n-klast
+  "given a node it finds the kth element to last"
+  [head k]
+  (cond
+    (nil? head) nil
+    :else (loop [head head runner (n-nth head k)]
+      (if-not (:n-next runner)
+        head
+        (recur (:n-next head) (:n-next runner))))))

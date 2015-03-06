@@ -23,3 +23,5 @@
 
 (expect [1 2] (n-seq (n-remove-duplicates (reduce n-conj nil [1 1 1 1 2 2 2]))))
 (expect [1 2] (n-seq (n-remove-duplicates (reduce n-conj nil [1 1 2 1 2 1 2]))))
+
+(expect 3 (:data (n-klast (reduce n-conj nil (range 5)) 2)))

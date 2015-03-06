@@ -43,6 +43,13 @@
     (nil? head) nil
     (= data (:data head)) (n-remove-all (:n-next head) data)
     :else (Node. (:data head) (n-remove-all (:n-next head) data))))
+(defn n-nth
+  "given a head an a number returns the n-th node"
+  [head n]
+  (cond
+    (nil? head) nil
+    (zero? (dec n)) head
+    :else (n-nth (:n-next head) (dec n))))
 
 (defn n-remove-duplicates
   "given a node it removes all the duplicates from the linkedlist."
@@ -50,4 +57,4 @@
   (loop [head head acc (:n-next head)]
     (if-not (:n-next head)
       acc
-      (recur (:n-next head) #spy/p (Node. (:data head) (n-remove-all acc  (:data head)))))))
+      (recur (:n-next acc) (Node. #spy/p (:data head) #spy/p (n-remove-all acc  (:data head)))))))

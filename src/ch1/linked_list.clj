@@ -49,12 +49,12 @@
   (cond
     (nil? head) nil
     (zero? (dec n)) head
+    (< (dec n) 0) nil
     :else (n-nth (:n-next head) (dec n))))
 
 (defn n-remove-duplicates
   "given a node it removes all the duplicates from the linkedlist."
   [head]
-  (loop [head head acc (:n-next head)]
-    (if-not (:n-next head)
-      acc
-      (recur (:n-next acc) (Node. #spy/p (:data head) #spy/p (n-remove-all acc  (:data head)))))))
+  (cond
+    (nil? head) nil
+    :else (Node. (:data head) (n-remove-duplicates (n-remove-all (:n-next head) (:data head))))))

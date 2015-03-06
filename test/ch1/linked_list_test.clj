@@ -12,3 +12,8 @@
 (expect vector? (n-seq (reduce n-conj nil (range 6))))
 
 (expect (Node. 4 nil) (n-last (reduce n-conj nil (range 5))))
+
+(expect [1 3 2] (n-seq (n-remove (reduce n-conj nil [1 2 3 2]) 2)))
+
+(expect [1 3] (n-seq (n-remove-all (reduce n-conj nil [1 2 3 2]) 2)))
+(expect [1 3] (n-seq (n-remove-all (reduce n-conj nil [1 2 2 2 3 2]) 2)))

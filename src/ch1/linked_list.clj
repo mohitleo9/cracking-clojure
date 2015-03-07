@@ -85,3 +85,11 @@
   (if (nil? head)
     nil
     (n-conj (n-reverse (:n-next head)) (:data head))))
+
+(defn is-palindrome?
+  [head]
+  (loop [head head rev (n-reverse head)]
+    (cond
+      (nil? head) true
+      (not= (:data head) (:data rev)) false
+      :else (recur (:n-next head) (:n-next rev)))))

@@ -29,3 +29,7 @@
 (expect (range 5) (n-seq (n-partition (reduce n-conj nil (range 5)) 2)))
 
 (expect (reverse (range 6)) (n-seq (n-reverse (reduce n-conj nil (range 6)))))
+
+(expect false (is-palindrome? (reduce n-conj nil (range 6))))
+(expect true (is-palindrome? (reduce n-conj nil [1 2 3 2 1])))
+(expect true (is-palindrome? (reduce n-conj nil "asa")))

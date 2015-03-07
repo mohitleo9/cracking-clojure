@@ -27,3 +27,5 @@
 (expect 3 (:data (n-klast (reduce n-conj nil (range 5)) 2)))
 
 (expect (range 5) (n-seq (n-partition (reduce n-conj nil (range 5)) 2)))
+
+(expect (reverse (range 6)) (n-seq (n-reverse (reduce n-conj nil (range 6)))))

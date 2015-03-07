@@ -78,3 +78,10 @@
       (nil? head) (reduce n-conj nil (concat left right))
       (<= (:data head) x) (recur (:n-next head) (conj left (:data head)) right)
       :else (recur (:n-next head) left (conj right (:data head))))))
+
+(defn n-reverse
+  "reverses a linkedlist"
+  [head]
+  (if (nil? head)
+    nil
+    (n-conj (n-reverse (:n-next head)) (:data head))))
